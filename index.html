@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Cozy Food – Order & Pay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <header>
+    <h1>Cozy Food</h1>
+    <p>Comfort classics, freshly made.</p>
+  </header>
+
+  <main>
+    <section id="menu"></section>
+
+    <aside id="cart">
+      <h2>Your cart</h2>
+      <ul id="cart-list"></ul>
+      <p id="total">Total: $0.00</p>
+      <button id="checkout-btn" hidden>Checkout</button>
+    </aside>
+
+    <form id="checkout" hidden>
+      <h2>Almost there…</h2>
+      <label>Phone <input type="tel" id="phone" required /></label>
+
+      <fieldset>
+        <legend>How would you like to receive your order?</legend>
+        <label><input type="radio" name="mode" value="pickup" checked /> Pick-up</label>
+        <label><input type="radio" name="mode" value="delivery" /> Delivery</label>
+      </fieldset>
+
+      <label id="address-label" hidden>
+        Delivery address
+        <textarea id="address" rows="2"></textarea>
+      </label>
+
+      <div id="card-element"></div>
+      <button id="submit-payment">Pay now</button>
+      <p id="payment-error" role="alert"></p>
+    </form>
+
+    <p id="success" hidden>✅ Order placed! We’ll text you when it’s ready.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
